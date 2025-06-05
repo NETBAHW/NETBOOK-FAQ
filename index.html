@@ -6,40 +6,77 @@
   <title>100% Free FAQ</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
-      max-width: 800px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #444;
+      max-width: 900px;
       margin: auto;
       padding: 20px;
+      background-image: linear-gradient(to bottom right, #fff, #ffe6e6);
+      user-select: none; /* ❌ Disable text selection */
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+      pointer-events: none;
     }
     h1 {
-      color: #007BFF;
+      color: #cc0000;
+      font-size: 2em;
+      margin-top: 0;
     }
     .faq-item {
       margin-bottom: 20px;
+      border: 2px solid #ffcccc;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #fff0f0;
+      transition: background-color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .faq-item:hover {
+      background-color: #ffe5e5;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
     }
     .question {
       font-weight: bold;
-      margin-bottom: 5px;
+      color: #b30000;
     }
     .answer {
-      margin-left: 15px;
+      margin-top: 10px;
+      display: none;
+      color: #333;
+    }
+    .faq-item.active .answer {
+      display: block;
+    }
+    footer {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #aaa;
     }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
 
-  <h1>100% නොමිලේ සේවාව – නිතර අසන පැණ</h1>
+  <header>
+    <img src="https://www.netbook.lk/storage/logo/logo.png" alt="Logo" />
+    <h1> අපගෙන් නිතර අසන ප්‍රශ්න</h1>
+  </header>
 
   <div class="faq-item">
     <div class="question">මෙම සේවාව සම්පූර්ණයෙන්ම නොමිලේද?</div>
-    <div class="answer">ඔව්, අපගේ සේවාව සම්පූර්ණයෙන්ම නොමිලේ වන අතර කිසිඳු සඟහටියක් නැත.</div>
+    <div class="answer">ඔව්, අපගේ සේවාව සම්පූර්ණයෙන්ම නොමිලේ,කිසිඳු මුදලක් අය නොකරයි.ලියාපදිංචිය සම්පූර්ණ නොමිලේ </div>
   </div>
 
   <div class="faq-item">
-    <div class="question">කවුරුන්ටද භාවිතා කළ හැක්කේ?</div>
-    <div class="answer">සියලුම පරිශීලකයින්ට – පුද්ගලික, ව්‍යාපාරික, හෝ අධ්‍යාපනික – භාවිතා කළ හැක.</div>
+    <div class="question">කවුරුන්ටද අප හා සම්බන්ධ විය හැක්කේ?</div>
+    <div class="answer">සියලුම පරිශීලකයින්ට වයස් බේදයකින් තොරව පුද්ගලික, ව්‍යාපාරික, හෝ අධ්‍යාපනික මේ කියන ඕනෑම අංශයක සිටින පුද්ගලයන් හට අප හා සම්බන්ධ වී දක්ෂ කතුවරයෙකු වීමට හැකියාව පවතී .අධ්‍යාපනය ලබන සිසුන් සඳහා විශේෂයි.</div>
   </div>
 
   <div class="faq-item">
@@ -52,9 +89,33 @@
     <div class="answer">ඔව්, අපගේ සේවාව සියලුම උපාංගවලට අනුකූල වේ.</div>
   </div>
 
-  <footer style="margin-top: 50px; font-size: 0.9em; color: #888;">
-    © 2025 - ඔබේ සේවාවේ නම මෙහි දැමිය හැක
+  <div class="faq-item">
+    <div class="question">මෙය mobile හෝ tablet එකකින් භාවිතා කළ හැක්කේද?</div>
+    <div class="answer">ඔව්, අපගේ සේවාව සියලුම උපාංගවලට අනුකූල වේ.</div>
+  </div>
+
+  <footer>
+    © 2025 - NETBOOK CREATORS (NETBOOK E PUBLISH)
   </footer>
+  <footer>
+   NBKING & NBQUEEN
+  </footer>
+
+  <script>
+    // FAQ toggle
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+
+    // Extra copy protection (keyboard shortcuts block)
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'u')) || e.key === 'F12') {
+        e.preventDefault();
+      }
+    });
+  </script>
 
 </body>
 </html>
